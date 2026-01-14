@@ -35,19 +35,19 @@
 
 ### 📋 Предварительные требования
 
-\`\`\`bash
+```bash
 # Проверьте установленные компоненты
 dotnet --version          # Должен быть 6.0 или выше
 node --version           # Для фронтенд зависимостей (опционально)
 sqlcmd -?                # Для SQL Server (опционально)
-\`\`\`
+```
 
 ### 🛠️ Установка за 5 минут
 
 <details>
 <summary><b>🎯 Способ 1: Клонирование и запуск</b></summary>
 
-\`\`\`bash
+```bash
 # 1. Клонируйте репозиторий
 git clone https://github.com/ВАШ_ЛОГИН/UniversityWebApp.git
 cd UniversityWebApp
@@ -64,7 +64,7 @@ dotnet run
 
 # 5. Откройте в браузере
 # https://localhost:7000 или http://localhost:5000
-\`\`\`
+```
 </details>
 
 <details>
@@ -81,7 +81,7 @@ dotnet run
 <details>
 <summary><b>🐳 Способ 3: Через Docker (продвинутый)</b></summary>
 
-\`\`\`dockerfile
+```dockerfile
 # Сборка образа
 docker build -t university-app .
 
@@ -90,7 +90,7 @@ docker run -p 8080:80 -e ASPNETCORE_ENVIRONMENT=Production university-app
 
 # Доступ по адресу
 # http://localhost:8080
-\`\`\`
+```
 
 > 📝 *Dockerfile включен в репозиторий*
 </details>
