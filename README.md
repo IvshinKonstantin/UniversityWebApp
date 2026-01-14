@@ -61,3 +61,47 @@ dotnet --version          # Должен быть 6.0 или выше
 node --version           # Для фронтенд зависимостей (опционально)
 sqlcmd -?                # Для SQL Server (опционально)
 ```
+## 🏗️ Архитектура системы
+
+### 📁 Структура проекта
+```
+UniversityWebApp/
+├── 📂 Controllers/           # Контроллеры MVC
+│   ├── HomeController.cs
+│   ├── FacultyController.cs
+│   ├── GroupController.cs
+│   └── StudentController.cs
+├── 📂 Models/               # Модели предметной области
+│   ├── Faculty.cs
+│   ├── Group.cs
+│   ├── Student.cs
+│   └── ViewModels/         # Модели представления
+├── 📂 Views/                # Razor представления
+│   ├── Home/
+│   │   ├── Index.cshtml
+│   │   └── Privacy.cshtml
+│   ├── Faculties/
+│   │   ├── Index.cshtml    # Список факультетов
+│   │   ├── Create.cshtml   # Создание
+│   │   ├── Edit.cshtml     # Редактирование
+│   │   └── Details.cshtml  # Детали
+│   └── Shared/             # Общие компоненты
+│       ├── _Layout.cshtml  # Основной макет
+│       └── _Validation.cshtml
+├── 📂 Data/                 # Слой доступа к данным
+│   ├── ApplicationDbContext.cs
+│   └── Repositories/       # Паттерн Repository
+├── 📂 Migrations/           # Миграции EF Core
+├── 📂 Services/            # Бизнес-логика
+│   ├── IFacultyService.cs
+│   └── FacultyService.cs
+├── 📂 wwwroot/             # Статические файлы
+│   ├── css/
+│   │   └── site.css       # Кастомные стили
+│   ├── js/
+│   │   └── site.js        # Кастомные скрипты
+│   └── lib/               # Библиотеки (Bootstrap, jQuery)
+├── 📜 Program.cs           # Точка входа
+├── 📜 appsettings.json     # Конфигурация
+└── 📜 UniversityWebApp.csproj
+```
