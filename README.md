@@ -62,8 +62,7 @@ dotnet ef database update
 # 4. Запустите приложение
 dotnet run
 
-# 5. Откройте в браузере
-# https://localhost:7000 или http://localhost:5000
+
 ```
 </details>
 
@@ -78,20 +77,5 @@ dotnet run
 > 💡 *Рекомендуется использовать профиль запуска "UniversityWebApp"*
 </details>
 
-<details>
-<summary><b>🐳 Способ 3: Через Docker (продвинутый)</b></summary>
 
-```dockerfile
-# Сборка образа
-docker build -t university-app .
-
-# Запуск контейнера
-docker run -p 8080:80 -e ASPNETCORE_ENVIRONMENT=Production university-app
-
-# Доступ по адресу
-# http://localhost:8080
-```
-
-> 📝 *Dockerfile включен в репозиторий*
-</details>
 
