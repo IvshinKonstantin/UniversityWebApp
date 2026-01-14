@@ -1,0 +1,40 @@
+﻿@model IEnumerable<UniversityWebApp.Models.Group>
+
+@{
+    ViewData["Title"] = "Группы";
+}
+
+<h1>Группы</h1>
+
+<p>
+    <a asp-action="Create" class="btn btn-success">Добавить новую группу</a>
+</p>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Название группы</th>
+            <th>Факультет</th>
+            <th>Год поступления</th>
+            <th>Количество студентов</th>
+            <th>Действия</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.Id</td>
+                <td>@item.Name</td>
+                <td>@item.Faculty?.Name</td>
+                <td>@item.Year</td>
+                <td>@(item.Students?.Count ?? 0)</td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-warning btn-sm">Редактировать</a>
+                    <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-danger btn-sm">Удалить</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

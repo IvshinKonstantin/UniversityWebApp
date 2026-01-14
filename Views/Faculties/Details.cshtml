@@ -1,0 +1,59 @@
+﻿@model UniversityWebApp.Models.Faculty
+
+@{
+    ViewData["Title"] = "Детали факультета";
+}
+
+<h1>Детали факультета</h1>
+
+<div>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            Название
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+        <dt class="col-sm-2">
+            Декан
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Dean)
+        </dd>
+    </dl>
+</div>
+
+@if (Model.Groups != null && Model.Groups.Any())
+{
+    <h4>Группы на факультете:</h4>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Название группы</th>
+                <th>Год поступления</th>
+                <th>Количество студентов</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var group in Model.Groups)
+            {
+                <tr>
+                    <td>@group.Name</td>
+                    <td>@group.Year</td>
+                    <td>@(group.Students?.Count ?? 0)</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+else
+{
+    <p>На факультете пока нет групп.</p>
+}
+
+<div class="mt-3">
+    <a asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-warning">Редактировать</a>
+    <a asp-action="Delete" asp-route-id="@Model.Id" class="btn btn-danger">Удалить</a>
+    <a asp-action="Index" class="btn btn-secondary">Назад к списку</a>
+</div>
